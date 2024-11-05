@@ -37,4 +37,4 @@
         deb: /tmp/bitwarden.deb
 
     - name: Run docker-install.yml playbook
-      include: docker-install.yml
+      import_task: docker-install.yml
