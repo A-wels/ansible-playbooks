@@ -1,0 +1,24 @@
+# ansible playbook to setup desktop environment:
+# - install packages: 
+#    - aptitude
+#    - firefox
+#    - vlc
+#    - gimp
+
+# also run docker-install.yml playbook
+
+- hosts: all
+  become: true
+  tasks:
+    - name: Install desktop environment packages
+      apt:
+        name:
+          - aptitude
+          - firefox
+          - vlc
+          - gimp
+        state: latest
+        update_cache: true
+
+    - name: Run docker-install.yml playbook
+      include_tasks: docker-install.yml
