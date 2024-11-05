@@ -27,14 +27,14 @@
         state: latest
         update_cache: true
 
-    - name: Download Bitwarden client
-      get_url:
-        url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
-        dest: /tmp/bitwarden.deb
+      - name: Download Bitwarden client
+        get_url:
+          url: https://vault.bitwarden.com/download/?app=desktop&platform=linux
+          dest: /tmp/bitwarden.deb
 
-    - name: Install Bitwarden client
-      apt:
-        deb: /tmp/bitwarden.deb
+      - name: Install Bitwarden client
+        apt:
+          deb: /tmp/bitwarden.deb
 
-    - name: Run docker-install.yml playbook
-      import_task: docker-install.yml
+      - name: Run docker-install.yml playbook
+        import_task: docker-install.yml
